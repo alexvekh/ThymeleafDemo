@@ -4,6 +4,9 @@
     <title>welcome</title>
   </head>
   <body>
-    <h2>Welcome to my HTML file</h2>
+    <h2 th:text="${'Welcome to my Thymeleaf HTML file'}">Welcome to my HTML file</h2>
+    <div th:text="${'Text from Thymeleaf inderted into our div'}">
+    Text inside of the div that will be replaced by Thymeleaf when we are running in a server environment. 
+    </div>
   </body>
 </html>
