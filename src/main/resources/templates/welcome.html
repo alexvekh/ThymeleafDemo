@@ -5,9 +5,29 @@
   </head>
   <body>
     <h2 th:text="${'Welcome to my Thymeleaf HTML file'}">Welcome to my HTML file</h2>
-    <div th:text="|${message} Text from div|"></div>
-    <div th:text="${message + ' Text from div 2'}">
+    <div th:text="|${message} Text from div|">
     Text inside of the div that will be replaced by Thymeleaf when we are running in a server environment. 
     </div>
+    <h2>Exemple car brands</h2>
+    <ul>
+      <li th:each="carBrand : ${cars}" th:text="${carBrand}" >Mercedes</li>
+    </ul>
+    <br/><br/>
+    <form action="" method="post" th:object="${car}">
+      <input type="number" th:field="*{year}"/>
+      <br/><br/>
+      <select th:field="*{brand}">
+        <option value="">Put an option here</option>
+        <option th:each="carBrand : ${cars}" th:value="${carBrand}" th:text="${carBrand}">Mercedes</option>      
+      </select>
+      <br/><br/>
+      <input type="radio" th:field="*{fuelType}" value="Deisel"/> <label for="FuelType1">Deisel</label>
+      <input type="radio" th:field="*{fuelType}" value="Gas"/> <label for="FuelType2">Gas</label>
+      <input type="radio" th:field="*{fuelType}" value="Electric"/> <label for="FuelType3">Electric</label>
+      <br/><br/>
+      <input type="submit" />
+      
+    </form>
+    
   </body>
 </html>  
