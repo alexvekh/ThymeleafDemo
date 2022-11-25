@@ -4,7 +4,14 @@
     <title>welcome</title>
     <script th:inline="javascript">
   
-        let carBrands = [[${cars}]];
+        let carBrands = /*[[${cars}]]*/;
+        let numberOfCarBrands = carBrands.length;
+        console.log("Number of car brands is: " + numberOfCarBrands);
+        
+        if (numberOfCarBrands < 8)
+        {
+          console.log("We must have removed a car brand from the list.");
+        }
   
     </script>
   </head>
