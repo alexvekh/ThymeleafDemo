@@ -2,6 +2,11 @@
 <html xmlns:th="http://thymeleaf.org">
   <head>
     <title>welcome</title>
+    <script th:inline="javascript">
+  
+        let carBrands = [[${cars}]];
+  
+    </script>
   </head>
   <body>
     <h2 th:text="${'Welcome to my Thymeleaf HTML file'}">Welcome to my HTML file</h2>
@@ -10,7 +15,7 @@
     </div>
     <h2>Exemple car brands</h2>
     <ul>
-      <li th:each="carBrand : ${cars}" th:text="${carBrand}" >Mercedes</li>
+      <li th:each="carBrand : ${cars}" th:inline="text"> [[${carBrand}]] <a th:href="@{/del/{brand}(brand=${carBrand})}">delete</a></li>
     </ul>
     <br/><br/>
     <form action="" method="post" th:object="${car}">
