@@ -42,10 +42,9 @@ public class WelcomeController
 
 	private void populateModel(ModelMap model) {
 		model.put("message", "This message comes to yu from our Welcome Controller");
-
-
 		model.put("cars", cars);
 		model.put("today", new Date());
+		model.put("money", 12.53);
 		
 		Car car = new Car();
 		model.put("car", car); 
