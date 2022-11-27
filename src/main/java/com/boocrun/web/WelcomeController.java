@@ -1,6 +1,7 @@
 package com.boocrun.web;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -44,6 +45,7 @@ public class WelcomeController
 
 
 		model.put("cars", cars);
+		model.put("today", new Date());
 		
 		Car car = new Car();
 		model.put("car", car); 
