@@ -20,6 +20,7 @@ import com.boocrun.domain.Model;
 @Controller
 public class WelcomeController 
 {	
+<<<<<<< HEAD
 	List<String> carBrands = new ArrayList<>();
 	List<Car> cars = new ArrayList<>();
 	
@@ -32,12 +33,26 @@ public class WelcomeController
 		carBrands.add("BMW");
 		carBrands.add("Mazda");
 		carBrands.add("Chevrolet");
+=======
+	List<String> cars = new ArrayList<>();
+	
+	public WelcomeController () {
+		cars.add("Toyota");
+		cars.add("Honda");
+		cars.add("Tesla");
+		cars.add("Ford");
+		cars.add("GM");
+		cars.add("BMW");
+		cars.add("Mazda");
+		cars.add("Chevrolet");
+>>>>>>> origin/main
 		
 	}
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)		
 	public String welcome (ModelMap model, @RequestParam(required=false) String carBrand) 
 	{
+<<<<<<< HEAD
 		Optional<Car> carOpt = cars.stream().filter(car -> car.getBrand().equals(carBrand)).findFirst();
 		if (carOpt.isPresent())
 		{
@@ -48,6 +63,10 @@ public class WelcomeController
 		{
 			populateModel(model, null);
 		}
+=======
+		
+		populateModel(model);
+>>>>>>> origin/main
 		
 		return "welcome";
 		
@@ -55,9 +74,15 @@ public class WelcomeController
 
 	private void populateModel(ModelMap model, Car car) {
 		model.put("message", "This message comes to yu from our Welcome Controller");
+<<<<<<< HEAD
 		model.put("carBrands", carBrands);
 		model.put("today", new Date());
 		model.put("money", 1654512.53);
+=======
+		model.put("cars", cars);
+		model.put("today", new Date());
+		model.put("money", 12.53);
+>>>>>>> origin/main
 		
 		
 		if (car == null)
@@ -90,8 +115,16 @@ public class WelcomeController
 	
 	@RequestMapping(value="/del/{carBrand}", method=RequestMethod.GET)
 	public String deleteCarBrend (@PathVariable String carBrand, ModelMap model) {
+<<<<<<< HEAD
 		List<Car> carBrands = cars.stream().filter(car -> car.getBrand().equals(carBrand)).collect(Collectors.toList());
 		cars.removeAll(carBrands);
 		return "redirect:/";
 	}
 }
+=======
+		cars.remove(carBrand);
+		populateModel(model);
+		return "welcome";
+	}
+}
+>>>>>>> origin/main

@@ -29,12 +29,16 @@
     <h2>Exemple car brands</h2>
     
     <ul>
+<<<<<<< HEAD
       <li th:each="car : ${cars}" th:inline="text">
           [[${car.brand}]] <a th:href="@{/?carBrand={brand}(brand=${car.brand})}" style="margin-left: 0.5em; margin-right: 0.5em"> edit</a> <a th:href="@{/del/{brand}(brand=${car.brand})}"> delete</a>
          <ul>
           <li th:each="carModel : ${car.models}" th:text="${carModel}"> </li>
         </ul>
       </li>
+=======
+      <li th:each="carBrand : ${cars}" th:inline="text"> [[${carBrand}]] <a th:href="@{/del/{brand}(brand=${carBrand})}">delete</a></li>
+>>>>>>> origin/main
     </ul>
     <div th:if="${#lists.isEmpty(cars)}">There are no car brands on the model</div>
     <br/><br/>
