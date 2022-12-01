@@ -32,5 +32,8 @@ public class Model {
 		this.name = name;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return name + ", " + year + ", " + fuelType;
+	}
 }

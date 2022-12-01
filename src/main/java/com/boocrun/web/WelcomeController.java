@@ -42,7 +42,7 @@ public class WelcomeController
 		if (carOpt.isPresent())
 		{
 			Car car = carOpt.get();
-			populateModel(model, car);
+			populateModel(model, car); 
 		}
 		else
 		{

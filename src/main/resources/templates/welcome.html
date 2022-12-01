@@ -32,7 +32,7 @@
       <li th:each="car : ${cars}" th:inline="text">
           [[${car.brand}]] <a th:href="@{/?carBrand={brand}(brand=${car.brand})}" style="margin-left: 0.5em; margin-right: 0.5em"> edit</a> <a th:href="@{/del/{brand}(brand=${car.brand})}"> delete</a>
          <ul>
-          <li th:each="carModel : ${car.models}" th:text="${carModel}"> </li>
+          <li th:each="carModel : ${car.models}" th:text="|${car.brand + ' ' + carModel}|"> </li>
         </ul>
       </li>
     </ul>

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Car {
+public class Car implements Comparable<Car>{
 	private String brand;
 	private List <Model> models = new ArrayList<>();
 	
@@ -20,22 +20,17 @@ public class Car {
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
-/*	public Integer getYear() {
-		return data.getYear();
-	}
-	public void setYear(Integer year) {
-		this.data.setYear(year);
-	}
-	public String getFuelType() {
-		return data.getFuelType();
-	}
-	public void setFuelType(String fuelType) {
-		this.data.setFuelType(fuelType);
-	}*/
+
 	@Override
 	public String toString() {
-		return "Car [brand=" + brand + ", models=" + models.toArray() + "]";
+		return "Car [brand=" + brand + ", models=" + Arrays.toString(models.toArray()) + "]";
 	}
+	
+	@Override
+	public int compareTo(Car o) {
+		return this.getBrand().compareTo(o.getBrand());
+	}
+	
 	
 	@Override
 	public int hashCode() {
